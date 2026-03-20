@@ -27,27 +27,27 @@ static uint8_t term_current_buf;
 static uint8_t term_x_pos;
 static uint8_t term_y_pos;
 
-// Convert RGB565 literal to BGR565 to match panel color order (MADCTL BGR).
-#define RGB565_TO_BGR565(c) (uint16_t)((((c) & 0xF800U) >> 11) | ((c) & 0x07E0U) | (((c) & 0x001FU) << 11))
+// MADCTL handles panel color order; keep software colors in native RGB565.
+#define RGB565_TO_BGR565(c) (uint16_t)(c)
 
 static const uint16_t colors_lut[16] =
 {
-		RGB565_TO_BGR565(0x0000),
-		RGB565_TO_BGR565(0x7861),
-		RGB565_TO_BGR565(0x1be4),
-		RGB565_TO_BGR565(0x7be4),
-		RGB565_TO_BGR565(0x000f),
-		RGB565_TO_BGR565(0x786f),
-		RGB565_TO_BGR565(0x1bef),
-		RGB565_TO_BGR565(0xbdf7),
-		RGB565_TO_BGR565(0x7bef),
-		RGB565_TO_BGR565(0xf903),
-		RGB565_TO_BGR565(0x3fe9),
-		RGB565_TO_BGR565(0xffe9),
-		RGB565_TO_BGR565(0x003e),
-		RGB565_TO_BGR565(0xf91f),
-		RGB565_TO_BGR565(0x37ff),
-		RGB565_TO_BGR565(0xffff)
+		RGB565_TO_BGR565(0x0000),        // black
+		RGB565_TO_BGR565(0x4208),        // dark gray
+		RGB565_TO_BGR565(0x03E0),        // dark green
+		RGB565_TO_BGR565(0x07E0),        // light green
+		RGB565_TO_BGR565(0x0010),        // dark blue
+		RGB565_TO_BGR565(0x8010),        // dark magenta
+		RGB565_TO_BGR565(0x0410),        // dark cyan
+		RGB565_TO_BGR565(0x8410),        // gray
+		RGB565_TO_BGR565(0xC618),        // light gray
+		RGB565_TO_BGR565(ST7735_RED),    // red
+		RGB565_TO_BGR565(ST7735_GREEN),  // green
+		RGB565_TO_BGR565(ST7735_YELLOW), // yellow
+		RGB565_TO_BGR565(ST7735_BLUE),   // blue
+		RGB565_TO_BGR565(ST7735_MAGENTA),// magenta
+		RGB565_TO_BGR565(ST7735_CYAN),   // cyan
+		RGB565_TO_BGR565(ST7735_WHITE)   // white
 };
 
 static const uint16_t color_pallets[][4] =
@@ -58,6 +58,7 @@ static const uint16_t color_pallets[][4] =
 		{RGB565_TO_BGR565(0), RGB565_TO_BGR565(0x6b4d), RGB565_TO_BGR565(0x6b4d), RGB565_TO_BGR565(0x6b4d)/*0x6fe0*/},
 		{RGB565_TO_BGR565(0), RGB565_TO_BGR565(ST7735_RED), RGB565_TO_BGR565(ST7735_RED), RGB565_TO_BGR565(ST7735_RED)},
 		{RGB565_TO_BGR565(0), RGB565_TO_BGR565(ST7735_YELLOW), RGB565_TO_BGR565(ST7735_YELLOW), RGB565_TO_BGR565(ST7735_YELLOW)},
+		{RGB565_TO_BGR565(0), RGB565_TO_BGR565(ST7735_GREEN), RGB565_TO_BGR565(ST7735_GREEN), RGB565_TO_BGR565(ST7735_GREEN)},
 };
 
 

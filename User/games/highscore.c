@@ -155,17 +155,19 @@ void HIGHSCORE_Main(void)
 
     for (uint8_t i = 0; i < HIGHSCORE_DISPLAY_LINES; i++)
     {
+        uint8_t y = (i == 0) ? 0 : (i + 1); // leave one blank line under the title
+
         if(highscore_display_data[i].data_id == 0xFF)
         {
-            tGFX_SetCursor(0, i);
-            tGFX_Print((char *)highscore_display_data[i].name, UI_THEME_HIGHSCORE_TEXT, UI_THEME_HIGHSCORE_BG);
+            tGFX_SetCursor(0, y);
+            tGFX_Print((char *)highscore_display_data[i].name, (i == 0) ? UI_THEME_HIGHSCORE_TITLE : UI_THEME_HIGHSCORE_TEXT, UI_THEME_HIGHSCORE_BG);
         }
         else
         {
-            tGFX_SetCursor(0, i);
+            tGFX_SetCursor(0, y);
             tGFX_Print((char *)highscore_display_data[i].name, UI_THEME_HIGHSCORE_TEXT, UI_THEME_HIGHSCORE_BG);
             itoa(HIGHSCORE_Read(highscore_display_data[i].data_id), buf, 10);
-            tGFX_Print(buf, UI_COLOR_WHITE, UI_THEME_HIGHSCORE_BG);
+            tGFX_Print(buf, UI_THEME_HIGHSCORE_TEXT, UI_THEME_HIGHSCORE_BG);
         }
     }
 

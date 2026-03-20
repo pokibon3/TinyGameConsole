@@ -11,8 +11,8 @@
 #define LCD_HEIGHT 80
 #define LCD_DEFAULT_ROTATION 2
 
-#define INVON
-//#define INVOFF
+//#define INVON
+#define INVOFF
 
 //#define OFFSET_1_26
 #define OFFSET_0_24

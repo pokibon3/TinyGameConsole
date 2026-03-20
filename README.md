@@ -1,11 +1,11 @@
-# TinyGameConsole (CH32V003F4P6)
+# TinyGameConsole (UIAPduino)
 
 MountRiver Studio 1 プロジェクトを、`wch-sdk` (`noneos-sdk`) の PlatformIO 環境でビルドできるようにした構成です。  
 `cw_decoder3` のハードウェア配線に合わせて、LCD と入力ピンを調整しています。
 
 ## Build Environment
 
-- MCU: `CH32V003F4P6`
+- Board: `UIAPduino`
 - PlatformIO platform: `https://github.com/Community-PIO-CH32V/platform-ch32v.git`
 - Framework: `noneos-sdk`
 - Upload: `wch-link`
@@ -87,3 +87,10 @@ cd /Users/ooe/src/TinyGameConsole
 pio run
 pio run -t upload
 ```
+
+## References
+
+- Repository: `Community-PIO-CH32V/platform-ch32v`
+  - URL: [https://github.com/Community-PIO-CH32V/platform-ch32v](https://github.com/Community-PIO-CH32V/platform-ch32v)
+- Repository: `Community-PIO-CH32V/framework-wch-noneos-sdk`
+  - URL: [https://github.com/Community-PIO-CH32V/framework-wch-noneos-sdk](https://github.com/Community-PIO-CH32V/framework-wch-noneos-sdk)

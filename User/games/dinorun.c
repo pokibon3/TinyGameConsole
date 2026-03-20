@@ -228,7 +228,7 @@ static const uint16_t dinorun_game_over_sound_seq[] = {100, 30, 200, 15, 100, 10
 static const term_sprite_t cactus_small_default_data =
 {
         .data = (uint8_t*)cactus_small_bitmap,
-        .pallet = UI_THEME_DINORUN_PAL_MAIN,
+        .pallet = UI_THEME_DINORUN_PAL_ENEMY,
         .size_x = 9,
         .size_y = 14,
         .x = 170,
@@ -240,7 +240,7 @@ static const term_sprite_t cactus_small_default_data =
 static const term_sprite_t cactus_big_default_data =
 {
         .data = (uint8_t*)cactus_big_bitmap,
-        .pallet = UI_THEME_DINORUN_PAL_MAIN,
+        .pallet = UI_THEME_DINORUN_PAL_ENEMY,
         .size_x = 16,
         .size_y = 20,
         .x = 170,
@@ -251,7 +251,7 @@ static const term_sprite_t cactus_big_default_data =
 static const term_sprite_t dino_idle_default_data =
 {
         .data = (uint8_t*)dino_main_body_bitmap,
-        .pallet = UI_THEME_DINORUN_PAL_MAIN,
+        .pallet = UI_THEME_DINORUN_PAL_DINO,
         .size_x = 20,
         .size_y = 13,
         .x = 4,
@@ -261,7 +261,7 @@ static const term_sprite_t dino_idle_default_data =
 static const term_sprite_t dino_crouching_default_data =
 {
         .data = (uint8_t*)dino_crouching_body_bitmap,
-        .pallet = UI_THEME_DINORUN_PAL_MAIN,
+        .pallet = UI_THEME_DINORUN_PAL_DINO,
         .size_x = 30,
         .size_y = 10,
         .x = 2,
@@ -272,7 +272,7 @@ static const term_sprite_t dino_crouching_default_data =
 static const term_sprite_t pterodactyl_default_data =
 {
         .data = (uint8_t*)pterodactyl_wing_up_bitmap,
-        .pallet = UI_THEME_DINORUN_PAL_MAIN,
+        .pallet = UI_THEME_DINORUN_PAL_ENEMY,
         .size_x = 24,
         .size_y = 16,
         .x = 170,
@@ -290,7 +290,7 @@ void DINORUN_SetupTerrain(void)
         uint8_t type = RNG_Get() % 4;
         gs->terrain_type_map[i] = type;
 
-        gs->terrain[i].pallet = UI_THEME_DINORUN_PAL_MAIN;
+        gs->terrain[i].pallet = UI_THEME_DINORUN_PAL_TERRAIN;
         gs->terrain[i].size_x = 40;
         gs->terrain[i].size_y = 8;
         gs->terrain[i].y = 72;
@@ -615,7 +615,7 @@ void DINORUN_Init(void)
     gs->dino = dino_idle_default_data;
 
     gs->dino_legs.data = (uint8_t*)dino_legs_idle_bitmap;
-    gs->dino_legs.pallet = UI_THEME_DINORUN_PAL_MAIN;
+    gs->dino_legs.pallet = UI_THEME_DINORUN_PAL_DINO;
     gs->dino_legs.size_x = 8;
     gs->dino_legs.size_y = 7;
     gs->dino_legs.x = 10;
