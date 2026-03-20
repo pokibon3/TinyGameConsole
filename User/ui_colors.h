@@ -1,0 +1,86 @@
+#ifndef USER_UI_COLORS_H_
+#define USER_UI_COLORS_H_
+
+#include <stdint.h>
+
+// 4-bit UI color index (mapped in termGFX.c colors_lut[16])
+typedef enum
+{
+    UI_COLOR_BLACK = 0,
+    UI_COLOR_DARK_GRAY = 1,
+    UI_COLOR_DARK_GREEN = 2,
+    UI_COLOR_LIGHT_GREEN = 3,
+    UI_COLOR_DARK_BLUE = 4,
+    UI_COLOR_DARK_MAGENTA = 5,
+    UI_COLOR_DARK_CYAN = 6,
+    UI_COLOR_GRAY = 7,
+    UI_COLOR_LIGHT_GRAY = 8,
+    UI_COLOR_RED = 9,
+    UI_COLOR_GREEN = 10,
+    UI_COLOR_YELLOW = 11,
+    UI_COLOR_BLUE = 12,
+    UI_COLOR_MAGENTA = 13,
+    UI_COLOR_CYAN = 14,
+    UI_COLOR_WHITE = 15
+} ui_color_t;
+
+// Sprite pallet index (mapped in termGFX.c color_pallets[][4])
+typedef enum
+{
+    UI_PAL_WHITE = 0,
+    UI_PAL_TEAL = 1,
+    UI_PAL_ORANGE = 2,
+    UI_PAL_GRAY = 3,
+    UI_PAL_RED = 4,
+    UI_PAL_YELLOW = 5
+} ui_sprite_pallet_t;
+
+// Common themes
+#define UI_THEME_MENU_BG                 UI_COLOR_DARK_BLUE
+#define UI_THEME_MENU_TITLE              UI_COLOR_RED
+#define UI_THEME_MENU_TEXT               UI_COLOR_WHITE
+#define UI_THEME_MENU_SELECTED_TEXT      UI_COLOR_BLACK
+#define UI_THEME_MENU_SOUND_ON           UI_COLOR_GREEN
+#define UI_THEME_MENU_SOUND_OFF          UI_COLOR_RED
+#define UI_THEME_MENU_LOW_BAT            UI_COLOR_YELLOW
+
+#define UI_THEME_GAMEOVER_BG             UI_COLOR_DARK_BLUE
+#define UI_THEME_GAMEOVER_TITLE          UI_COLOR_RED
+#define UI_THEME_GAMEOVER_LABEL          UI_COLOR_CYAN
+#define UI_THEME_GAMEOVER_VALUE          UI_COLOR_WHITE
+#define UI_THEME_GAMEOVER_HINT           UI_COLOR_YELLOW
+#define UI_THEME_GAMEOVER_CURSOR         UI_COLOR_GREEN
+
+#define UI_THEME_HIGHSCORE_BG            UI_COLOR_BLACK
+#define UI_THEME_HIGHSCORE_TEXT          UI_THEME_MENU_TEXT
+
+#define UI_THEME_FLASHLIGHT_BG           UI_COLOR_WHITE
+
+#define UI_THEME_JUMPBIRD_BG             UI_COLOR_CYAN
+#define UI_THEME_JUMPBIRD_SCORE_TEXT     UI_COLOR_BLACK
+
+#define UI_THEME_DINORUN_BG              UI_COLOR_WHITE
+#define UI_THEME_DINORUN_SCORE_TEXT      UI_COLOR_LIGHT_GRAY
+#define UI_THEME_DINORUN_SCORE_BG        UI_COLOR_WHITE
+
+#define UI_THEME_SNAKE_BG                UI_COLOR_DARK_BLUE
+#define UI_THEME_SNAKE_HUD_BG            UI_COLOR_BLUE
+#define UI_THEME_SNAKE_HUD_TEXT          UI_COLOR_WHITE
+#define UI_THEME_SNAKE_HUD_LINE          UI_COLOR_CYAN
+#define UI_THEME_SNAKE_BODY              UI_COLOR_GREEN
+#define UI_THEME_SNAKE_HEAD              UI_COLOR_YELLOW
+#define UI_THEME_SNAKE_FOOD              UI_COLOR_RED
+
+#define UI_THEME_PONG_BG                 UI_COLOR_CYAN
+#define UI_THEME_PONG_CENTER_LINE        UI_COLOR_DARK_GRAY
+#define UI_THEME_PONG_PLAYER_SCORE       UI_COLOR_RED
+#define UI_THEME_PONG_ENEMY_SCORE        UI_COLOR_YELLOW
+#define UI_THEME_PONG_PAL_BALL           UI_PAL_WHITE
+#define UI_THEME_PONG_PAL_PLAYER         UI_PAL_RED
+#define UI_THEME_PONG_PAL_ENEMY          UI_PAL_YELLOW
+
+#define UI_THEME_JUMPBIRD_PAL_PIPE       UI_PAL_TEAL
+#define UI_THEME_JUMPBIRD_PAL_BIRD       UI_PAL_ORANGE
+#define UI_THEME_DINORUN_PAL_MAIN        UI_PAL_GRAY
+
+#endif /* USER_UI_COLORS_H_ */
