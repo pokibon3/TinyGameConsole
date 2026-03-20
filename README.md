@@ -90,6 +90,8 @@ pio run -t upload
 
 ## References
 
+- Repository: `max7d3/CH32V003-MiniGameConsole`
+  - URL: [https://github.com/max7d3/CH32V003-MiniGameConsole](https://github.com/max7d3/CH32V003-MiniGameConsole)
 - Repository: `Community-PIO-CH32V/platform-ch32v`
   - URL: [https://github.com/Community-PIO-CH32V/platform-ch32v](https://github.com/Community-PIO-CH32V/platform-ch32v)
 - Repository: `Community-PIO-CH32V/framework-wch-noneos-sdk`
