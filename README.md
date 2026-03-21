@@ -40,6 +40,10 @@ MountRiver Studio 1 プロジェクトを、`wch-sdk` (`noneos-sdk`) の Platfor
 - `ACTION`: `PD2`
 - `UP/DOWN`: 未使用（コード上は常に未押下扱い）
 
+### Speaker (PWM)
+
+- `SPK_OUT`: `PC0` (`TIM2 CH3`)
+
 ## Controls
 
 ### Common
