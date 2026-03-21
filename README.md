@@ -88,6 +88,17 @@ pio run
 pio run -t upload
 ```
 
+## Firmware Updater Tool Usage
+
+1. UIAPduino のリセットボタンを押しながら USB ケーブルを接続し、BootLoader モードにします。
+2. ツールは mac 版と Windows 版があります。
+   - mac: `tools/mac/firmwareUpdater`
+   - Windows: `tools/win/firmwareUpdater`
+3. スクリプトを実行します。
+   - mac: `flash.sh`
+   - Windows: `flash.bat`
+4. 書き込み後、UIAPduino をリセットするか、電源を再投入します。
+
 ## References
 
 - Repository: `max7d3/CH32V003-MiniGameConsole`
