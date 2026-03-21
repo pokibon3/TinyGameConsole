@@ -74,13 +74,10 @@ void GAMEOVER_Main(void)
 
     }
 
-    tGFX_SetCursor(0, 3 + offset);
-    tGFX_Print(">Press ", UI_THEME_GAMEOVER_HINT, UI_THEME_GAMEOVER_BG);
-    tGFX_Print((char*)btn_strings[gameover_button], UI_THEME_GAMEOVER_VALUE, UI_THEME_GAMEOVER_BG);
-    tGFX_Print(" key to", UI_THEME_GAMEOVER_HINT, UI_THEME_GAMEOVER_BG);
+    // Leave one blank line between score/message area and the action hint.
     tGFX_SetCursor(0, 4 + offset);
-    tGFX_Print("continue", UI_THEME_GAMEOVER_HINT, UI_THEME_GAMEOVER_BG);
-    tGFX_SetCursor(0, 5 + offset);
+    tGFX_Print(">Press Action Key!", UI_THEME_GAMEOVER_HINT, UI_THEME_GAMEOVER_BG);
+    tGFX_SetCursor(0, 6 + offset);
     tGFX_Print(">", UI_THEME_GAMEOVER_LABEL, UI_THEME_GAMEOVER_BG);
 
     if(frames_passed == 15)
@@ -89,8 +86,8 @@ void GAMEOVER_Main(void)
         blink++;
     }
 
-    if(blink%2) tGFX_SetChar('_', 1, 5 + offset, UI_THEME_GAMEOVER_CURSOR, UI_THEME_GAMEOVER_BG);
-    else tGFX_SetChar(0, 1, 5 + offset, UI_THEME_GAMEOVER_BG, UI_THEME_GAMEOVER_BG);
+    if(blink%2) tGFX_SetChar('_', 1, 6 + offset, UI_THEME_GAMEOVER_CURSOR, UI_THEME_GAMEOVER_BG);
+    else tGFX_SetChar(0, 1, 6 + offset, UI_THEME_GAMEOVER_BG, UI_THEME_GAMEOVER_BG);
 
     if(BTN_IsPressed(gameover_button)) {ENG_SetInFrameCallback(&MENU_MainMenuProcess); MENU_ForceBTNNotReleased(); tGFX_Clear(UI_THEME_MENU_BG);}
 }

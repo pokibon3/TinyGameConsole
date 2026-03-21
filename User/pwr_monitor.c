@@ -16,9 +16,9 @@ void PWR_MONITOR_Init(void)
     GPIOD->CFGLR &= ~(0xF << 24);
     GPIOD->CFGLR |= (0x1 << 24);
 
-    // Enable PVD to trigger below 3.3 V
+    // Enable PVD to trigger below 2.9 V
     RCC->APB1PCENR |= RCC_APB1Periph_PWR;
-    PWR->CTLR |= (1 << 4) | (0b010 << 5);
+    PWR->CTLR |= (1 << 4) | (0b000 << 5);
 
     // Turn on the LED
     GPIOD->BSHR = (1 << 6);

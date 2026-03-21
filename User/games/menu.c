@@ -102,7 +102,7 @@ void MENU_MainMenuProcess(void)
 	for(size_t i = 0; i < MENU_ITEMS_COUNT; i++)
 	{
 
-		tGFX_SetCursor(0, i + 2);
+		tGFX_SetCursor(1, i + 2);
 
 	    if(selected_option == i)
 	    {
@@ -116,9 +116,9 @@ void MENU_MainMenuProcess(void)
 
 	if(SND_GetMuteState() == 0)
 	{
-		tGFX_SetCursor(strlen(menu[MENU_SOUND_POS].name), MENU_SOUND_POS + 2);
+		tGFX_SetCursor(1 + strlen(menu[MENU_SOUND_POS].name), MENU_SOUND_POS + 2);
 		tGFX_Print("   ", UI_THEME_MENU_BG, UI_THEME_MENU_BG); // Clear
-		tGFX_SetCursor(strlen(menu[MENU_SOUND_POS].name), MENU_SOUND_POS + 2);
+		tGFX_SetCursor(1 + strlen(menu[MENU_SOUND_POS].name), MENU_SOUND_POS + 2);
 
 		if(selected_option == MENU_SOUND_POS)
 		{
@@ -131,7 +131,7 @@ void MENU_MainMenuProcess(void)
 	}
 	else
 	{
-		tGFX_SetCursor(strlen(menu[MENU_SOUND_POS].name), MENU_SOUND_POS + 2);
+		tGFX_SetCursor(1 + strlen(menu[MENU_SOUND_POS].name), MENU_SOUND_POS + 2);
 
 		if(selected_option == MENU_SOUND_POS)
 		{
