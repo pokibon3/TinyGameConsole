@@ -25,8 +25,6 @@
 
 
 static snake_game_state_t *game_state;
-static uint8_t snake_action_released;
-static uint8_t snake_vertical_dir;
 
 
 static const uint16_t game_oversound_seq[] = {880, 20, 660, 20, 440, 20, 330, 20, 220, 20};
@@ -157,8 +155,6 @@ void SNAKE_Init(void)
     game_state->tail_len = 2;
     game_state->snake_dir = (RNG_Get() % 3) + 129;
     game_state->snake_dir_lock = game_state->snake_dir;
-    snake_action_released = 1;
-    snake_vertical_dir = 129;
 
     SNAKE_PrintScore();
     SNAKE_SpawnFood();
@@ -171,28 +167,10 @@ void SNAKE_Main(void)
 {
     game_state->frames_since_move++;
 
-	if(!BTN_IsPressed(BTN_ACTION))
-	{
-		snake_action_released = 1;
-	}
-
 	if(BTN_IsPressed(BTN_RIGHT) && game_state->snake_dir_lock != 128) game_state->snake_dir = 130;
 	else if(BTN_IsPressed(BTN_LEFT) && game_state->snake_dir_lock != 130) game_state->snake_dir = 128;
-	else if(BTN_IsPressed(BTN_ACTION) && snake_action_released)
-	{
-		snake_action_released = 0;
-
-		if(snake_vertical_dir == 129)
-		{
-			if(game_state->snake_dir_lock != 131) game_state->snake_dir = 129;
-			snake_vertical_dir = 131;
-		}
-		else
-		{
-			if(game_state->snake_dir_lock != 129) game_state->snake_dir = 131;
-			snake_vertical_dir = 129;
-		}
-	}
+	else if(BTN_IsPressed(BTN_UP) && game_state->snake_dir_lock != 131) game_state->snake_dir = 129;
+	else if(BTN_IsPressed(BTN_DOWN) && game_state->snake_dir_lock != 129) game_state->snake_dir = 131;
 
 	if(*(game_state->snake_pos_x) == game_state->food_x &&  *(game_state->snake_pos_y) == game_state->food_y)
 	{

@@ -399,11 +399,11 @@ void PONG_Main(void)
 {
 
     // Process input
-	if(BTN_IsPressed(BTN_LEFT) && gs->paddle_p.y > 1) gs->paddle_p.y -= 2;
-	else if(BTN_IsPressed(BTN_RIGHT) && gs->paddle_p.y < 59)gs->paddle_p.y += 2;
+	if(BTN_IsPressed(BTN_UP) && gs->paddle_p.y > 1) gs->paddle_p.y -= 2;
+	else if(BTN_IsPressed(BTN_DOWN) && gs->paddle_p.y < 59) gs->paddle_p.y += 2;
 
     // Force game over
-    if(BTN_IsPressed(BTN_LEFT) && BTN_IsPressed(BTN_RIGHT))
+    if(BTN_IsPressed(BTN_UP) && BTN_IsPressed(BTN_DOWN))
     {
          gs->e_score = 10;
     }

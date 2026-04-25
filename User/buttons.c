@@ -19,8 +19,8 @@
 *			PD2 -> ACTION
 *
 *	PA1 -> LEFT		PC4 -> RIGHT
-*			
-*			UP / DOWN are unused
+*
+*	PC1 -> UP		PC2 -> DOWN
 *
 */
 
@@ -34,6 +34,14 @@ void BTN_Init(void)
 	GPIOA->CFGLR &= ~(0b11 << 6);
 	GPIOA->CFGLR |= (0b10 << 6);
 
+	// PC1 input with pull resistor (UP)
+	GPIOC->CFGLR &= ~(0b11 << 6);
+	GPIOC->CFGLR |= (0b10 << 6);
+
+	// PC2 input with pull resistor (DOWN)
+	GPIOC->CFGLR &= ~(0b11 << 10);
+	GPIOC->CFGLR |= (0b10 << 10);
+
 	// PC4 input with pull resistor
 	GPIOC->CFGLR &= ~(0b11 << 18);
 	GPIOC->CFGLR |= (0b10 << 18);
@@ -44,6 +52,8 @@ void BTN_Init(void)
 
 	// Enable pull-ups
 	GPIOA->OUTDR |= (1 << 1);
+	GPIOC->OUTDR |= (1 << 1);
+	GPIOC->OUTDR |= (1 << 2);
 	GPIOC->OUTDR |= (1 << 4);
 	GPIOD->OUTDR |= (1 << 2);
 
@@ -62,13 +72,13 @@ static uint8_t _BTN_CheckState(buttons_names_t button)
         return (GPIOC->INDR >> 4) & 1;
 
         case BTN_UP:
-        return 1;
+        return (GPIOC->INDR >> 1) & 1;  // PC1
 
         case BTN_LEFT:
         return (GPIOA->INDR >> 1) & 1;
 
         case BTN_DOWN:
-        return 1;
+        return (GPIOC->INDR >> 2) & 1;  // PC2
 
         default:
         return 0;

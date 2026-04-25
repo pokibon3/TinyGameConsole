@@ -639,7 +639,7 @@ void DINORUN_Main(void)
 {
 
     // Process input
-    if(BTN_IsPressed(BTN_ACTION) && (gs->dino_state == DINO_STATE_IDLE) && !(gs->intial_lock))
+    if((BTN_IsPressed(BTN_ACTION) || BTN_IsPressed(BTN_UP)) && (gs->dino_state == DINO_STATE_IDLE) && !(gs->intial_lock))
     {
         gs->dino_acc = -36;
         gs->dino_state = DINO_STATE_IN_AIR;
@@ -652,13 +652,13 @@ void DINORUN_Main(void)
         gs->intial_lock = 0;
     }
 
-    if(BTN_IsPressed(BTN_RIGHT) && (gs->dino_state == DINO_STATE_IDLE))
+    if(BTN_IsPressed(BTN_DOWN) && (gs->dino_state == DINO_STATE_IDLE))
     {
         gs->dino = dino_crouching_default_data;
         gs->dino_state = DINO_STATE_CROUCHING;
     }
 
-    if(!BTN_IsPressed(BTN_RIGHT) && (gs->dino_state == DINO_STATE_CROUCHING))
+    if(!BTN_IsPressed(BTN_DOWN) && (gs->dino_state == DINO_STATE_CROUCHING))
     {
         gs->dino = dino_idle_default_data;
         gs->dino_state = DINO_STATE_IDLE;

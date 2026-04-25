@@ -33,31 +33,40 @@ MountRiver Studio 1 プロジェクトを、`wch-sdk` (`noneos-sdk`) の Platfor
 - `LCD_DEFAULT_ROTATION` は `2`（上下反転側）。
 - `MISO` は未使用（TX only）。
 
-### Buttons (3 buttons)
+### Buttons (5 buttons)
 
 - `LEFT`: `PA1`
 - `RIGHT`: `PC4`
 - `ACTION`: `PD2`
-- `UP/DOWN`: 未使用（コード上は常に未押下扱い）
+- `UP`: `PC1`
+- `DOWN`: `PC2`
 
 ### Speaker (PWM)
 
-- `SPK_OUT`: `PC0` (`TIM2 CH3`)
+- `SPK_OUT`: `PD6` (`TIM2 CH3`, remap_3)
+
+### Power Monitor LED
+
+- `PWR_LED`: `PC0`（UIAPduino 内蔵 LED）
+
+### Serial (TX only)
+
+- `TX`: `PD5` (`USART1`)
 
 ## Controls
 
 ### Common
 
 - メインメニュー:
-  - `RIGHT`: 次の項目
-  - `LEFT`: 前の項目
+  - `DOWN`: 次の項目
+  - `UP`: 前の項目
   - `ACTION`: 決定
 
 ### Game Specific
 
 - Snake:
   - `LEFT/RIGHT`: 左右移動
-  - `ACTION`: 縦方向を交互切替（UP/DOWN）
+  - `UP/DOWN`: 上下移動
   - Game Over 復帰: `ACTION`
 
 - Jump Bird:
@@ -65,13 +74,13 @@ MountRiver Studio 1 プロジェクトを、`wch-sdk` (`noneos-sdk`) の Platfor
   - Game Over 復帰: `ACTION`
 
 - Dino Run:
-  - `ACTION`: ジャンプ
-  - `RIGHT`: しゃがみ（押下中）
+  - `ACTION` または `UP`: ジャンプ
+  - `DOWN`: しゃがみ（押下中）
   - Game Over 復帰: `ACTION`
 
 - Pong:
-  - `LEFT/RIGHT`: パドル上下移動
-  - `LEFT + RIGHT`: 強制ゲームオーバー（デバッグ用途）
+  - `UP/DOWN`: パドル上下移動
+  - `UP + DOWN`: 強制ゲームオーバー（デバッグ用途）
   - Game Over 復帰: `ACTION`
 
 - High Score:

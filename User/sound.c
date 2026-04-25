@@ -21,11 +21,15 @@ static volatile uint8_t mute;
 void SND_Init(void)
 {
 	RCC->APB1PCENR |= RCC_APB1Periph_TIM2;
+	RCC->APB2PCENR |= RCC_APB2Periph_AFIO | RCC_APB2Periph_GPIOD;
 
-	// GPIO PC0 settings (OUTPUT, Multiplexing Push-Pull Mode)
-	GPIOC->CFGLR |= (0b11 << 0);
-    GPIOC->CFGLR &= ~(0b11 << 2);
-    GPIOC->CFGLR |= (0b10 << 2);
+	// Remap TIM2 CH3 to PD6 (remap_3: TIM2_REMAP = 0b11)
+	AFIO->PCFR1 &= ~AFIO_PCFR1_TIM2_REMAP;
+	AFIO->PCFR1 |= (AFIO_PCFR1_TIM2_REMAP_0 | AFIO_PCFR1_TIM2_REMAP_1);
+
+	// GPIO PD6 settings (OUTPUT, Alternate Function Push-Pull, 50MHz)
+	GPIOD->CFGLR &= ~(0xF << 24);
+	GPIOD->CFGLR |= (0xB << 24);
 
 	// Timer 2 settings
 	TIM2->CHCTLR2 = (0b110 << 4) | (1 << 3); // OC3M Mode: PWM mode 1 | CCR3 Preload Enable

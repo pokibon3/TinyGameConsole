@@ -159,14 +159,14 @@ void MENU_SelectionProcess(void)
 {
 	if(btn_relesed)
 	{
-		if(BTN_IsPressed(BTN_RIGHT))
+		if(BTN_IsPressed(BTN_DOWN))
 		{
 			btn_relesed = 0;
 			if(selected_option < MENU_ITEMS_COUNT - 1) selected_option++;
 			SND_PlayNow(300, 10);
 		}
 
-		if(BTN_IsPressed(BTN_LEFT))
+		if(BTN_IsPressed(BTN_UP))
 		{
 			btn_relesed = 0;
 			if(selected_option != 0) selected_option--;
@@ -180,7 +180,7 @@ void MENU_SelectionProcess(void)
 
 		}
 	}
-	else if(!BTN_IsPressed(BTN_RIGHT) && !BTN_IsPressed(BTN_LEFT) && !BTN_IsPressed(BTN_ACTION))
+	else if(!BTN_IsPressed(BTN_DOWN) && !BTN_IsPressed(BTN_UP) && !BTN_IsPressed(BTN_ACTION))
 	{
 		btn_relesed = 1;
 	}
